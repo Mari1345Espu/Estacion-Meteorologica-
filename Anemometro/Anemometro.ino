@@ -1,9 +1,10 @@
   
   int countup=0, conta2=0;
   int Reg_anemo=0;
+  float WindSpeed;
   const int RecordTime = 3; //Define Measuring Time (Seconds)
   const int anemoPin2 =  2;// the number of the LED 
-  float WindSpeed;
+  
   volatile int InterruptCounter=0;
   
 void setup() {
