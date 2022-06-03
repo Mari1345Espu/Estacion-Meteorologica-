@@ -1,4 +1,4 @@
-/* #include <LiquidCrystal_I2C.h> */
+#include <LiquidCrystal_I2C.h>
 #include <DHT.h>
 #include <DHT_U.h>
 #include <SoftwareSerial.h>
@@ -7,7 +7,7 @@
 #define DHTTYPE DHT22
 
 
-/* LiquidCrystal_I2C lcd(0x27, 20, 4); //Direccion hexadecimal,tamaño x, tamaño y */
+LiquidCrystal_I2C lcd(0x27, 20, 4); //Direccion hexadecimal,tamaño x, tamaño y
 
 
 #define L_POR_BALANCEO 0.2794; 
@@ -54,7 +54,7 @@ void setup() {
   pinMode(anemoPin2, INPUT);//blujula
   pinMode(pluviPin3, INPUT);//plumiometro
   pinMode(9, OUTPUT);//blujula
- /*  lcd.init();//inicializa la pantalla
+  lcd.init();//inicializa la pantalla
   lcd.backlight();//Enciende la luz de fondo
 
   lcd.setCursor(4, 1); //posicion 5 en x en la primer linea
@@ -67,7 +67,7 @@ void setup() {
 
   dht.begin();
 }
-/* 
+
 void displayDatos(float velocidad,String direccion, float humedad,float temperatura,int cantidadLLuvia){
    String velViento,humSensor,temperaturaSensor,pluviometro;
 
@@ -203,14 +203,14 @@ void sensorHumedad(){
   h = dht.readHumidity();
   t = dht.readTemperature();
   if (isnan(h) || isnan(t)) {
-   //Serial.println(F("Failed to read from DHT sensor!"));
+    Serial.println(F("Failed to read from DHT sensor!"));
     return;
   }
   hic = dht.computeHeatIndex(t, h, false);
-//  Serial.println("Humidity: ");
-//  Serial.println(h);
-//  Serial.println("Temperature");
-//  Serial.println(hic);
+    Serial.println("Humidity: ");
+    Serial.println(h);
+    Serial.println("Temperature");
+    Serial.println(hic);
 }
 
 void veleta(){
@@ -251,7 +251,7 @@ void veleta(){
   {dirViento="NO 315";dirViento_tx=315;}
   if(sensorValue1>3.43 && sensorValue1<3.47 )
   {dirViento="NO 337.5";dirViento_tx=337.5;}
-  //Serial.println(dirViento);
+  Serial.println(dirViento);
 }
 
 void anemometro() {
@@ -274,7 +274,7 @@ void contadoranemometro(){
 }
 
 void balanceoPluviometro() { 
-  //attachInterrupt(digitalPinToInterrupt(3), balanceoPluviometro, RISING);
+  attachInterrupt(digitalPinToInterrupt(3), balanceoPluviometro, RISING);
   contadorPluvi++;  
 }
 
@@ -288,42 +288,32 @@ void pluviometro(){
   detachInterrupt(digitalPinToInterrupt(3));
   tomaDatos();  
 }
-// void envio_serial(){
-// //sensor tem_ambiente
-// //sensor humedad
-// //sensor_dir_vien
-// //sensor vel_vient
-// //sensor Precipitacion
+void envio_serial(){
+  sensor tem_ambiente
+  sensor humedad
+  sensor_dir_vien
+  sensor vel_vient
+  sensor Precipitacion
 
-//     Serial.print(t);
-//     delay(100);
-//     Serial.print(h);
-//     delay(100);
-//     Serial.print(dirViento_tx);
-//     delay(100);
-//     if(WindSpeed >= 10.00){
-//       Serial.print(WindSpeed);   
-//     }else{
-//       Serial.print(WindSpeed); 
-//       Serial.print("0");     
-//     }
-//     delay(100);
-//     Serial.println(lluvia);
-//      delay(100);
-// }
-
-
-void convertit(){
-      
+  Serial.print(t);
+  delay(100);
+  Serial.print(h);
+  delay(100);
+  Serial.print(dirViento_tx);
+  delay(100);
+  if(WindSpeed >= 10.00){
+     Serial.print(WindSpeed);   
+  }else{
+     Serial.print(WindSpeed); 
+     Serial.print("0");     
+   }
+    delay(100);
+    Serial.println(lluvia);
+    delay(100);
 }
 
-void cargar_v(){
 
-}
 
-void enviar_trama(){
-  
-}
 
       
       
