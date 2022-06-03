@@ -33,12 +33,6 @@ float t;
 float hic;
 int dir_esclavo = 1;
 
-byte bytewrite[24] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-int dato1 = 0 ,dato2 = 0,dato3 = 0,dato4 = 0,dato5 = 0,
-dato6 = 0,dato7 = 0,dato8 = 0,dato9 = 0,dato10 = 0,
-dato11 = 0,dato12 = 0,dato13 = 0,dato14 = 0,dato15 = 0,
-dato16 = 0,dato17 = 0,dato18 = 0,dato19 = 0,dato20 = 0;
-
 const int A2pin = 2;
 DHT dht(A2, DHTTYPE);
 
